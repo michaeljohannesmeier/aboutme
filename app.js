@@ -8,8 +8,10 @@ var hbs = require('express-handlebars');
 var ProgressBar = require('progressbar.js');
 
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+var index = require('./routes/aboutme/index');
+var thegym = require('./routes/thegym/index');
+var piggame = require('./routes/piggame/index');
+var budgetcalc = require('./routes/budgetcalc/index');
 
 var app = express();
 
@@ -27,7 +29,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/thegym', thegym);
+app.use('/piggame', piggame);
+app.use('/budgetcalc', budgetcalc);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
